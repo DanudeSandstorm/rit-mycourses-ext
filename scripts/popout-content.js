@@ -21,8 +21,11 @@ function fixHeight(header_height) {
 	var view_height = popup_body_height + header_height;
 	popup_body.style.height = view_height + "px";
 
-	
 
+	var content_body = document.getElementsByClassName('d2l-fileviewer-rendered-pdf')[0];
+	if (content_body != null) {
+		content_body.style.height = (view_height - 6) + "px";
+	}
 }
 
 popoutContent();
