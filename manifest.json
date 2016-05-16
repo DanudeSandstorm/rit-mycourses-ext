@@ -2,16 +2,29 @@
   "manifest_version": 2,
 
   "name": "MyCourses Mod Pack",
-  "description": "This extension shows a Google Image search result for the current page",
+  "description": "",
   "version": "1.0",
+  "icons": {},
+
+  "permissions": [
+    "https://mycourses.rit.edu/*"
+  ],
+
+  "background": {
+    "persistent": false,
+    "page": "background.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://mycourses.rit.edu/d2l/le/content/*/fullscreen/*"],
+      "js": ["scripts/popout-content.js"]
+    }
+  ],
 
   "browser_action": {
-    "default_icon": "RITTriangleLogo.png",
-    "default_popup": "popup.html",
-    "default_title": "Click here!"
-  },
-  "permissions": [
-    "activeTab",
-    "https://ajax.googleapis.com/"
-  ]
+    "default_title": "",
+    "default_icon": "images/RITTriangleLogo.png",
+    "default_popup": "popup.html"
+  }
 }
