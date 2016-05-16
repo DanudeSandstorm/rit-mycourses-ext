@@ -22,11 +22,16 @@ function fixHeight(header_height = 0) {
 	popup_body.style.height = view_height + "px";
 
 
+	//TODO this might need to be refactored
 	//Readjust height of fileviewer
-	var content_body = document.getElementsByClassName('d2l-fileviewer-rendered-pdf')[0];
-	if (content_body != null) {
-		content_body.style.height = (view_height - 6) + "px";
-	}
+	var content_type = ['d2l-fileviewer-rendered-pdf','d2l-documentViewer-inline'];
+	content_type.forEach(function(type){
+		var content_body = document.getElementsByClassName(type)[0];
+		if (content_body != null) {
+			//for some reason having it set to full height causes a second scrollbar to appear
+			content_body.style.height = (view_height - 6) + "px"; 
+		}
+	});
 }
 
 var timeoutId = 0;
