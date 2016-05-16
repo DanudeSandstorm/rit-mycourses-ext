@@ -2,9 +2,13 @@
   "manifest_version": 2,
 
   "name": "MyCourses Mod Pack",
-  "description": "",
-  "version": "1.0",
-  "icons": {},
+  "description": "Fixes quirks about myCourses",
+  "version": "1.1",
+  "icons": { 
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
 
   "permissions": [
     "https://mycourses.rit.edu/*"
@@ -24,7 +28,7 @@
 
   "browser_action": {
     "default_title": "",
-    "default_icon": "images/RITTriangleLogo.png",
+    "default_icon": "images/icon16.png",
     "default_popup": "popup.html"
   }
 }
