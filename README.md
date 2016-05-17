@@ -1,8 +1,13 @@
 # RIT myCourses Extension
 
-An extension for RIT's myCourses website which fixes some annoying issues.
-
 [Side-loading the extension](https://developer.chrome.com/extensions/getstarted#unpacked)
+
+An extension for RIT's myCourses website which fixes popout content.
+
+- Fixed poputs not resizing to window size 
+- Removes the header for popout content allowing for more content to be displayed on screen
+
+
 
 ### License
 
