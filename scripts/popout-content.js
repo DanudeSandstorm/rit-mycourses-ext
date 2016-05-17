@@ -20,6 +20,7 @@ function fixHeight(header_height = 0) {
 	var popup_body_height = popup_body.offsetHeight;
 	var view_height = popup_body_height + header_height; //header_height is for the first time only
 	popup_body.style.height = view_height + "px";
+	popup_body.style.overflow = "hidden";
 
 
 	//TODO this might need to be refactored
@@ -28,8 +29,7 @@ function fixHeight(header_height = 0) {
 	content_type.forEach(function(type){
 		var content_body = document.getElementsByClassName(type)[0];
 		if (content_body != null) {
-			//for some reason having it set to full height causes a second scrollbar to appear
-			content_body.style.height = (view_height - 6) + "px"; 
+			content_body.style.height = view_height + "px"; 
 		}
 	});
 }
