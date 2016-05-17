@@ -2,7 +2,7 @@
 
 An extension for RIT's myCourses website which fixes some annoying issues.
 
-
+[Side-loading the extension](https://developer.chrome.com/extensions/getstarted#unpacked)
 
 ### License
 
