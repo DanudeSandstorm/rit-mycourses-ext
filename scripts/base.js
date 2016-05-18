@@ -19,4 +19,13 @@ function ritNavbar() {
 }
 
 navbarSpace();
-ritNavbar();
+
+chrome.runtime.onMessage.addListener(
+	function(request, sender, sendResponse){
+		console.log(request);
+		if (request.message = "ritNavbar") {
+			ritNavbar();
+		}
+		return true;
+	}
+);
