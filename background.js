@@ -7,7 +7,7 @@ function matchRule(str, rule) {
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    if (matchRule(sender.tab.url, "https://mycourses.rit.edu/d2l/home/*")){
+    if (!matchRule(sender.tab.url, "https://mycourses.rit.edu/d2l/home")){
     	sendResponse({script: "ritNavbar"});
     }
 });
