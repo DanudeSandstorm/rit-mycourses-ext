@@ -20,12 +20,8 @@ function ritNavbar() {
 
 navbarSpace();
 
-chrome.runtime.onMessage.addListener(
-	function(request, sender, sendResponse){
-		console.log(request);
-		if (request.message = "ritNavbar") {
-			ritNavbar();
-		}
-		return true;
+chrome.runtime.sendMessage({greeting: 'hello'}, function(response) {
+	if (response.script = "ritNavbar"){
+		ritNavbar();
 	}
-);
+})
