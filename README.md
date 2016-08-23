@@ -2,8 +2,26 @@
 
 An extension for RIT's myCourses website which fixes popout content.
 
+
+#### General
+- Removes 2px between banner and header
+
+#### Home
+- Removes unnessicary sections
+
+#### Classes
+- Squashes the banner to take up less room on each page
+
+#### Popout content
 - Fixed poputs not resizing to window size 
-- Removes the header for popout content allowing for more content to be displayed on screen
+- Removes the header in popout content allowing for more content to be displayed on screen
+
+
+
+
+
+### Chrome
+[Chrome Store](https://chrome.google.com/webstore/detail/mycourses-mod-pack/ngplfhblfejgjnaapcajgiccnapfhchi)
 
 [How to side-load the extension](https://developer.chrome.com/extensions/getstarted#unpacked)
 
@@ -11,7 +29,7 @@ An extension for RIT's myCourses website which fixes popout content.
 
 MIT License
 
-Copyright (c) [2016] [Daniel Santoro]
+Copyright (c) 2016 Daniel Santoro
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
