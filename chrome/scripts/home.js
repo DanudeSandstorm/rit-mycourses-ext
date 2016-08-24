@@ -18,6 +18,10 @@ function removeContent() {
 	widgets = getWidgets(boxes[1]);
 	removeWidget(widgets[0]);
 
+	//removes "role"
+	//var role = boxes[0].getElementsByClassName("d2l-select-container")[0];
+
+
 	function getWidgets(node){
 		return node.getElementsByClassName("d2l-widget");
 	}
