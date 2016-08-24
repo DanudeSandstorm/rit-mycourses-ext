@@ -12,22 +12,25 @@ function removeContent() {
 	//Grabs the widget header to place on the next box before removing
 	var header = widgets[0].getElementsByClassName("d2l-widget-header")[0];
 	widgets[1].insertBefore(header, widgets[1].firstChild);
-	removeWidget(widgets[0]);
+	removeElement(widgets[0]);
 
 	//Grabs the second column's first widget
 	widgets = getWidgets(boxes[1]);
-	removeWidget(widgets[0]);
+	removeElement(widgets[0]);
 
-	//removes "role"
-	//var role = boxes[0].getElementsByClassName("d2l-select-container")[0];
+	//removes "role" word
+	var role = boxes[0].getElementsByClassName("d2l-select-container")[0];
+	var role_parent = role.parentElement.parentElement;
+	removeElement(role.parentElement);
+	role_parent.insertBefore(role, role_parent.firstChild);
 
 
 	function getWidgets(node){
 		return node.getElementsByClassName("d2l-widget");
 	}
 
-	function removeWidget(widget){
-		widget.parentNode.removeChild(widget);
+	function removeElement(element){
+		element.parentNode.removeChild(element);
 	}
 }
 
