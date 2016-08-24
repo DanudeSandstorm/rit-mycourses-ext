@@ -1,6 +1,6 @@
 # RIT myCourses Extension
 
-An extension for RIT's myCourses website which fixes popout content.
+An extension for RIT's myCourses website which fixes/improves various things:
 
 
 #### General
@@ -16,7 +16,8 @@ An extension for RIT's myCourses website which fixes popout content.
 - Fixed poputs not resizing to window size 
 - Removes the header in popout content allowing for more content to be displayed on screen
 
-
+#### Login Page
+- Autofocus on login button
 
 
 
