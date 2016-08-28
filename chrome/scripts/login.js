@@ -1,7 +1,8 @@
 'use strict';
 
-function focus_login() {
-	document.getElementById("ritloginbutton").focus();
-}
+chrome.storage.sync.get('auto_login', function(data) {
 
-focus_login();
+	var button = document.getElementById("ritloginbutton");
+
+	data["auto_login"] ? button.click() : button.focus();
+});

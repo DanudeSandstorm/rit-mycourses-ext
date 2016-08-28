@@ -1,3 +1,4 @@
+//TODO replace this with checking each toggle in form
 var options = ['auto-login'];
 
 document.addEventListener('DOMContentLoaded', function() {

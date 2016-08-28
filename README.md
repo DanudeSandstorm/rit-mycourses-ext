@@ -2,22 +2,23 @@
 
 An extension for RIT's myCourses website which fixes/improves various things:
 
+#### Login Page
+- Autofocus on login button
+- Autologin option
 
 #### General
 - Removes 2px between banner and header
 
-#### Home
-- Removes unnessicary sections
+#### Home Page
+- Removes unnessicary sections and content
 
-#### Classes
+#### Course Pages
 - Squashes the banner to take up less room on each page
 
 #### Popout content
 - Fixed poputs not resizing to window size 
 - Removes the header in popout content allowing for more content to be displayed on screen
 
-#### Login Page
-- Autofocus on login button
 
 
 
