@@ -3,7 +3,7 @@
 
   "name": "MyCourses Mod Pack",
   "description": "Fixes quirks about myCourses",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "icons": { 
     "16": "images/icon16.png",
     "48": "images/icon48.png",
@@ -34,7 +34,7 @@
       "js": ["scripts/home.js"]
     },
     {
-      "matches": ["https://mycourses.rit.edu/d2l/le/*", "https://mycourses.rit.edu/d2l/home/*"],
+      "matches": ["https://mycourses.rit.edu/d2l/le/*", "https://mycourses.rit.edu/d2l/home/*", "https://mycourses.rit.edu/d2l/lms/*"],
       "js": ["scripts/courses.js"]
     },
     {
