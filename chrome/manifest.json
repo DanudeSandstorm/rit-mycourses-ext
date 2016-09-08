@@ -2,8 +2,8 @@
   "manifest_version": 2,
 
   "name": "MyCourses Mod Pack",
-  "description": "Fixes quirks about myCourses",
-  "version": "1.4.0",
+  "description": "Improves myCourses",
+  "version": "1.5.0",
   "icons": { 
     "16": "images/icon16.png",
     "48": "images/icon48.png",
@@ -34,12 +34,16 @@
       "js": ["scripts/home.js"]
     },
     {
-      "matches": ["https://mycourses.rit.edu/d2l/le/*", "https://mycourses.rit.edu/d2l/home/*"],
+      "matches": ["https://mycourses.rit.edu/d2l/le/*", "https://mycourses.rit.edu/d2l/home/*", "https://mycourses.rit.edu/d2l/lms/*"],
       "js": ["scripts/courses.js"]
     },
     {
       "matches": ["https://mycourses.rit.edu/d2l/le/content/*/fullscreen/*"],
       "js": ["scripts/popout-content.js"]
+    },
+    {
+      "matches": ["https://mycourses.rit.edu/d2l/le/*/discussions/*"],
+      "js": ["lib/jquery.1.6.1.min.js", "scripts/discussions.js"]
     }
   ],
 
