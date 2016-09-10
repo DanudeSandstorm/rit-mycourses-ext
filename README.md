@@ -8,6 +8,7 @@ An extension for RIT's myCourses website which fixes/improves various things:
 
 #### General
 - Removes 2px between banner and header
+- Only shows currently enrolled courses under "select a course" drop down menu
 
 #### Home Page
 - Removes unnessicary sections and content
