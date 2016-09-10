@@ -9,11 +9,10 @@ function navbarSpace() {
 
 function selectACourse() {
     var button = document.querySelectorAll(".d2l-minibar .d2l-menuflyout-opener")[0];
-    var datalist = ".d2l-menuflyout-contents .d2l-datalist";
 
     button.addEventListener('click',
         waitForCourses(function() {
-            var courses = document.querySelectorAll(datalist + " > .d2l-datalist-item");
+            var courses = document.querySelectorAll(".d2l-menuflyout-contents .d2l-datalist > .d2l-datalist-item");
             var currSemester = 0,
                 currCourses = [],
                 prevCourses = [];
@@ -41,19 +40,32 @@ function selectACourse() {
             });
 
             hideCourses(prevCourses);
+
+            removeClassSearchButton();
+
         })
     );
 
     //Wait for the elements to load
     function waitForCourses(callBack) {
         window.setTimeout(function() {
-            if (document.querySelectorAll(datalist).length) {
+            if (document.querySelectorAll(".d2l-menuflyout-contents .d2l-datalist").length) {
                 callBack();
             }
             else {
                 waitForCourses(callBack);
             }
         }, 200);
+    }
+}
+
+function removeClassSearchButton() {
+    var courseSelector = document.getElementById("courseSelectorId");
+    var parent = courseSelector.children[1];
+    removeElement(parent.getElementsByClassName("vui-link")[0]);
+
+    function removeElement(element) {
+        element.parentNode.removeChild(element);
     }
 }
 
@@ -64,6 +76,13 @@ function hideCourses(courses) {
     });
 
     //Create showmore button
+    var courseSelector = document.getElementById("courseSelectorId");
+    var parent = courseSelector.children[1];
+    var button = document.createElement("a");
+    button.appendChild(document.createTextNode("Show All Classes"));
+    button.role = "button";
+    button.classList.add("vui-button", "d2l-button", "d2l-loadmore-pager");
+    courseSelector.appendChild(button);
 }
 
 function showCourses(courses) {
