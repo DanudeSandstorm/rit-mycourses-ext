@@ -22,9 +22,7 @@ function selectACourse() {
                 var title = courses[i].children[0].title;
                 var semester = title.substr(title.length - 4);
 
-                if (!isNaN(semester)) {
-                    if (semester > currSemester) currSemester = semester;
-                }
+                if (!isNaN(semester) && semester > currSemester) currSemester = semester;
             }
 
             //Splits the current from the previous courses
@@ -35,13 +33,11 @@ function selectACourse() {
                 var title = course.children[0].title;
                 var semester = title.substr(title.length - 4);
 
-                if (isNaN(semester)) return;
-                semester == currSemester ? currCourses.push(course) : prevCourses.push(course);
+                (!isNaN(semester) && semester == currSemester) ? 
+                    currCourses.push(course) : prevCourses.push(course);
             });
 
             hideCourses(prevCourses);
-
-            removeClassSearchButton();
 
         })
     );
@@ -59,10 +55,19 @@ function selectACourse() {
     }
 }
 
-function removeClassSearchButton() {
+function coursesToggleButton(text, toggleFunction) {
     var courseSelector = document.getElementById("courseSelectorId");
     var parent = courseSelector.children[1];
-    removeElement(parent.getElementsByClassName("vui-link")[0]);
+
+    //Remove current button
+    removeElement(parent.children[0]);
+
+    var button = document.createElement("a");
+    button.appendChild(document.createTextNode(text));
+    button.role = "button";
+    button.classList.add("vui-button", "d2l-button", "d2l-loadmore-pager");
+    button.addEventListener("click", toggleFunction);
+    parent.appendChild(button);
 
     function removeElement(element) {
         element.parentNode.removeChild(element);
@@ -76,13 +81,7 @@ function hideCourses(courses) {
     });
 
     //Create showmore button
-    var courseSelector = document.getElementById("courseSelectorId");
-    var parent = courseSelector.children[1];
-    var button = document.createElement("a");
-    button.appendChild(document.createTextNode("Show All Classes"));
-    button.role = "button";
-    button.classList.add("vui-button", "d2l-button", "d2l-loadmore-pager");
-    courseSelector.appendChild(button);
+    coursesToggleButton("Show All Courses", showCourses.bind(this, courses));
 }
 
 function showCourses(courses) {
@@ -92,6 +91,7 @@ function showCourses(courses) {
     });
 
     //create hide button
+    coursesToggleButton("Hide Courses", hideCourses.bind(this, courses));
 }
 
 navbarSpace();
