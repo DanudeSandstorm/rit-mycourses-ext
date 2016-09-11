@@ -1,5 +1,5 @@
 //TODO replace this with checking each toggle in form
-var options = ['auto-login'];
+var options = ['auto-login', 'course-reduce'];
 
 document.addEventListener('DOMContentLoaded', function() {
 
