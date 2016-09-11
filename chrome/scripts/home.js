@@ -25,11 +25,11 @@ function removeContent() {
 	role_parent.insertBefore(role, role_parent.firstChild);
 
 
-	function getWidgets(node){
+	function getWidgets(node) {
 		return node.getElementsByClassName("d2l-widget");
 	}
 
-	function removeElement(element){
+	function removeElement(element) {
 		element.parentNode.removeChild(element);
 	}
 }
