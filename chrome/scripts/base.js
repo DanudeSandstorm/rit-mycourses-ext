@@ -8,13 +8,13 @@ function navbarSpace() {
 }
 
 function selectACourse() {
-    var button = document.querySelectorAll(".d2l-minibar .d2l-menuflyout-opener")[0];
+    var courseSelector = document.getElementById("d2l_lp_minibar_courseselector");
+    var button = courseSelector.children[0];
 
     button.addEventListener('click',
         waitForCourses(function() {
-            var courses = document.querySelectorAll(".d2l-menuflyout-contents .d2l-datalist > .d2l-datalist-item");
+            var courses = courseSelector.querySelectorAll(".d2l-menuflyout-contents .d2l-datalist > .d2l-datalist-item");
             var currSemester = 0,
-                currCourses = [],
                 prevCourses = [];
 
             //Determines the current semester
@@ -33,10 +33,10 @@ function selectACourse() {
                 var title = course.children[0].title;
                 var semester = title.substr(title.length - 4);
 
-                (!isNaN(semester) && semester == currSemester) ? 
-                    currCourses.push(course) : prevCourses.push(course);
+                if (isNaN(semester) || semester != currSemester) prevCourses.push(course);
             });
 
+            //Hides previous courses
             hideCourses(prevCourses);
 
         })
@@ -45,12 +45,9 @@ function selectACourse() {
     //Wait for the elements to load
     function waitForCourses(callBack) {
         window.setTimeout(function() {
-            if (document.querySelectorAll(".d2l-menuflyout-contents .d2l-datalist").length) {
-                callBack();
-            }
-            else {
-                waitForCourses(callBack);
-            }
+            (document.querySelectorAll(".d2l-menuflyout-contents .d2l-datalist").length)
+                ? callBack()
+                : waitForCourses(callBack);
         }, 200);
     }
 }
@@ -97,7 +94,5 @@ function showCourses(courses) {
 navbarSpace();
 
 chrome.storage.sync.get('course_reduce', function(data) {
-    if (data["course_reduce"]) {
-        selectACourse();
-    }
+    if (data["course_reduce"]) selectACourse();
 });

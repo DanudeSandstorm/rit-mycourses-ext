@@ -41,7 +41,6 @@ window.addEventListener('resize', function(){
 	    clearTimeout(timeoutId);
 	}
 	timeoutId = setTimeout(function() {
-	    console.log('resize');
 	    fixHeight();
 	    timeoutId = 0;
 	}, 200);
