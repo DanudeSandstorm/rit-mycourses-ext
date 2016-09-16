@@ -3,7 +3,7 @@
 
   "name": "MyCourses Mod Pack",
   "description": "Improves myCourses",
-  "version": "1.6.5",
+  "version": "1.6.6",
   "icons": { 
     "16": "images/icon16.png",
     "48": "images/icon48.png",
@@ -16,7 +16,6 @@
   ],
 
   "background": {
-    "persistent": false,
     "scripts": ["scripts/background.js"]
   },
 

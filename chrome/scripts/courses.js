@@ -13,6 +13,7 @@ function ritNavbar() {
 	//Removes unnessisary portion of class title
 	var class_title = document.getElementsByClassName("d2l-navbar-title")[0];
 	class_title.innerHTML = class_title.innerHTML.replace(/ *\([^)]*\) */g, "").trim();
+
 }
 
 ritNavbar();

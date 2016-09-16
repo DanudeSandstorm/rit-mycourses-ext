@@ -8,14 +8,16 @@ function navbarSpace() {
 }
 
 function selectACourse() {
-    var courseSelector = document.getElementById("d2l_lp_minibar_courseselector");
-    var button = courseSelector.children[0];
+    var button = document.getElementsByClassName("d2l-menuflyout-opener")[0];
 
     button.addEventListener('click',
-        waitForCourses(function() {
-            var courses = courseSelector.querySelectorAll(".d2l-menuflyout-contents .d2l-datalist > .d2l-datalist-item");
+        waitForCourses.bind(this, function() {
             var currSemester = 0,
                 prevCourses = [];
+
+            //Selector for list of class items
+            var courses = document.getElementsByClassName("d2l-menuflyout-contents")[0]
+                                .querySelectorAll(".d2l-datalist > .d2l-datalist-item");
 
             //Determines the current semester
             for (var i = 0; i < courses.length; i++) {
@@ -93,6 +95,6 @@ function showCourses(courses) {
 
 navbarSpace();
 
-chrome.storage.sync.get('course_reduce', function(data) {
+chrome.storage.sync.get("course_reduce", function(data) {
     if (data["course_reduce"]) selectACourse();
 });
