@@ -10,19 +10,16 @@ chrome.runtime.onMessage.addListener(
         //Different checks for commands
         switch (request.command) {
             case 'createWindow':
-                createWindow(request.params.url);
+                chrome.windows.create(request.params);
+                break;
+            case 'createTab':
+                chrome.tabs.create(request.params);
                 break;
             case 'default':
                 break;
         }
     }
-);
-
-function createWindow(url) {
-    chrome.windows.create(
-        {url: [url], focused: true, type: "popup"}
-    );
-}
+); 
 
 // Using url parsing to determine response
 // * Needs "tabs"

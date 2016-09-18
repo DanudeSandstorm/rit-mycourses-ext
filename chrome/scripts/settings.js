@@ -1,8 +1,13 @@
 var options = [ 
 	{name: 'auto-login', text: 'Auto Login'}, 
-	{name: 'course-reduce', text: 'Reduce Course List'},
-	{name: 'auto-popout', text: 'Popout Content Links', 
-		help: 'pops out links in the content section instead of redirecting'
+	{name: 'course-reduce', text: 'Reduce Course List', 
+		help: 'Shows only current courses in course drop down menu'
+	},
+	{name: 'content-popout', text: 'Popout Content Links', 
+		help: 'Pops out links in the content section instead of redirecting'
+	},
+	{name: 'content-tab', text: 'New Tab Content Links', 
+		help: 'Opens content links in a new tab instead of redirecting'
 	}
 ];
 
