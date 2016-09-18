@@ -17,9 +17,7 @@ An extension for RIT's myCourses website which fixes/improves various things:
 - Squashes the banner to take up less room on each page
 
 #### Content Page
-- Instead of redirecting the current page, set to:
-	- Open links in pop out window
-	- Open links in a new tab
+- Option to open links in pop out window (instead of redirecting the current page)
 
 #### Popout content
 - Fixed popouts not resizing to window size 

@@ -5,9 +5,6 @@ var options = [
 	},
 	{name: 'content-popout', text: 'Popout Content Links', 
 		help: 'Pops out links in the content section instead of redirecting'
-	},
-	{name: 'content-tab', text: 'New Tab Content Links', 
-		help: 'Opens content links in a new tab instead of redirecting'
 	}
 ];
 
