@@ -1,7 +1,9 @@
-//TODO replace this with checking each toggle in form
 var options = [ 
 	{name: 'auto-login', text: 'Auto Login'}, 
-	{name: 'course-reduce', text: 'Reduce Course List'}
+	{name: 'course-reduce', text: 'Reduce Course List'},
+	{name: 'auto-popout', text: 'Popout Content Links', 
+		help: 'pops out links in the content section instead of redirecting'
+	}
 ];
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -9,11 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	var options_form = document.getElementById("options");
 
 	options.forEach(function(option) {
-
-		var name = option.name;
 		var input = createCheckBox(option);
-
-		name = name.replace("-", "_");
+		var name = option.name.replace("-", "_");
 
 		chrome.storage.sync.get(name, function(data) {
 			data[name] ? input.checked = data[name] : input.checked = false;
@@ -33,6 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		input.id = option.name;
 		input.name = option.name;
 		input.type = 'checkbox';
+
+		if (option.help) label.title = option.help;
 
 		label.appendChild(input);
 		label.appendChild(document.createTextNode(option.text))
