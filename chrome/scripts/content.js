@@ -20,7 +20,8 @@ function openPopup(url) {
     chrome.runtime.sendMessage({ command: "createWindow", params: { url: url, focused: true, type: 'popup' } });
 }
 
-chrome.storage.sync.get("content_popout", function(data) {
-	if (data["content_popout"]) replaceLinks();
-});
-
+window.addEventListener('DOMContentLoaded', function() {
+	chrome.storage.sync.get("content_popout", function(data) {
+		if (data["content_popout"]) replaceLinks();
+	});
+}, false);
