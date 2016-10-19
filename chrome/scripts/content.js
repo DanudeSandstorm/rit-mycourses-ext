@@ -20,8 +20,18 @@ function openPopup(url) {
     chrome.runtime.sendMessage({ command: "createWindow", params: { url: url, focused: true, type: 'popup' } });
 }
 
-window.addEventListener('DOMContentLoaded', function() {
-	chrome.storage.sync.get("content_popout", function(data) {
-		if (data["content_popout"]) replaceLinks();
-	});
-}, false);
+chrome.storage.sync.get("content_popout", function(data) {
+	if (data["content_popout"]) {
+		var observer = new MutationObserver(function(mutations) {
+			replaceLinks();
+		});
+
+		window.addEventListener('DOMContentLoaded', function() {
+			replaceLinks();
+
+			var target = document.querySelectorAll(".d2l-twopanelselector-wrapper .d2l-box")[1];
+			var config = { childList: true };
+			observer.observe(target, config);
+		}, false);
+	}
+});
