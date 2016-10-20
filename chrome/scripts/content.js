@@ -23,14 +23,16 @@ function openPopup(url) {
 chrome.storage.sync.get("content_popout", function(data) {
 	if (data["content_popout"]) {
 		var observer = new MutationObserver(function(mutations) {
+			console.log('test');
 			replaceLinks();
 		});
 
 		window.addEventListener('DOMContentLoaded', function() {
 			replaceLinks();
-
-			var target = document.querySelectorAll(".d2l-twopanelselector-wrapper .d2l-box")[1];
-			var config = { childList: true };
+			var target = document.getElementsByClassName("d2l-body")[0];
+			//var target = document.querySelectorAll(".d2l-twopanelselector-wrapper .d2l-box")[1];
+			var config = { childList: true, substree: true };
+			console.log(target);
 			observer.observe(target, config);
 		}, false);
 	}
