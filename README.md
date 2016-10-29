@@ -31,3 +31,12 @@ An extension for RIT's myCourses website which fixes/improves various things:
 [Chrome Store](https://chrome.google.com/webstore/detail/mycourses-mod-pack/ngplfhblfejgjnaapcajgiccnapfhchi)
 
 [How to side-load the extension](https://developer.chrome.com/extensions/getstarted#unpacked)
+
+
+### Development
+Any shared resources between browsers are kept within the shared folder.  
+When working on shared, use the pack.sh script.  
+The first argument is the browser (chrome or firefox):
+```bash
+$./pack.sh chrome
+```
