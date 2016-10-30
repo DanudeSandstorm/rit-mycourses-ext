@@ -36,6 +36,3 @@ function getWidgets(node) {
 function removeElement(element) {
     element.parentNode.removeChild(element);
 }
-
-
-removeContent();
