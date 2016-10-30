@@ -1,10 +1,5 @@
 *.zip
 
-*/images/*
-*/lib/*
-*/scripts/*
-*/styles/*
+/bin/*
 
-!shared/**
-!_*
 !.gitinclude
