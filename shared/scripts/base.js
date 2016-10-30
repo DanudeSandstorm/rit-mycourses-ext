@@ -92,9 +92,3 @@ function showCourses(courses) {
     //create hide button
     coursesToggleButton("Hide Courses", hideCourses.bind(this, courses));
 }
-
-navbarSpace();
-
-chrome.storage.sync.get("course_reduce", function(data) {
-    if (data["course_reduce"]) selectACourse();
-});
