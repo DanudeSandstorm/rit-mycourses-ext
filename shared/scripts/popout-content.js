@@ -1,13 +1,12 @@
 'use strict';
 
-
-function popoutContent(){
+function popoutContent() {
 
 	var header_height = removeHeader();
 	fixHeight(header_height);
 }
 
-function removeHeader(){
+function removeHeader() {
 	var header = document.getElementsByClassName("d2l-popup-title")[0];
 	var header_height = header.offsetHeight;
 	header.parentNode.removeChild(header);
@@ -18,7 +17,8 @@ function fixHeight(header_height = 0) {
 	//Readjust height of view
 	var popup_body = document.getElementsByClassName('d2l-popup-body')[0];
 	var popup_body_height = popup_body.offsetHeight;
-	var view_height = popup_body_height + header_height; //header_height is for the first time only
+	//header_height is for the first time only
+	var view_height = popup_body_height + header_height;
 	popup_body.style.height = view_height + "px";
 	popup_body.style.overflow = "hidden";
 
@@ -35,7 +35,7 @@ function fixHeight(header_height = 0) {
 }
 
 var timeoutId = 0;
-window.addEventListener('resize', function(){
+window.addEventListener('resize', function() {
 	
 	if (timeoutId){
 	    clearTimeout(timeoutId);
@@ -45,5 +45,3 @@ window.addEventListener('resize', function(){
 	    timeoutId = 0;
 	}, 200);
 }, false);
-
-popoutContent();
