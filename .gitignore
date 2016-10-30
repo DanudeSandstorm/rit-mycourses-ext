@@ -1,1 +1,5 @@
 *.zip
+
+/bin/*
+
+!.gitinclude

@@ -15,5 +15,3 @@ function ritNavbar() {
 	class_title.innerHTML = class_title.innerHTML.replace(/ *\([^)]*\) */g, "").trim();
 
 }
-
-ritNavbar();
