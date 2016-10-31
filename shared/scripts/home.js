@@ -1,5 +1,8 @@
 'use strict';
 
+//Function is always called
+removeContent();
+
 //Removes the top widgets from each column on the home page
 function removeContent() {
     var widgets,

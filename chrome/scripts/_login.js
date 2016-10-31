@@ -1,5 +1,5 @@
-function getLoginData(bool) {
+function getLoginData(callback) {
 	chrome.storage.sync.get('auto_login', function(data) {
-		return bool(data["auto_login"]);
+		return callback(data["auto_login"]);
 	});
 };

@@ -1,5 +1,14 @@
 'use strict';
 
+//Function is always called
+navbarSpace();
+
+//Checks for user settings
+getReduceData(function(bool) {
+    if (bool) selectACourse();
+});
+
+//removes the small white line between header bars
 function navbarSpace() {
     var navbar = document.getElementsByClassName("d2l-navbar-container")[0];
     if (navbar != null) {
@@ -7,6 +16,7 @@ function navbarSpace() {
     }
 }
 
+//Reduces select a course list to currentently enrolled courses
 function selectACourse() {
     var button = document.getElementsByClassName("d2l-menuflyout-opener")[0];
 

@@ -1,5 +1,9 @@
 'use strict';
 
+//Function is always called
+ritNavbar();
+
+//Modifies the RIT navbar
 function ritNavbar() {
 	//Reduces height of navbar
 	var rit_navbar = document.querySelectorAll(".d2l-navbar-container .d2l-box-layout > .d2l-box");

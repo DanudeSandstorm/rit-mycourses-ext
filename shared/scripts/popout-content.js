@@ -1,9 +1,23 @@
 'use strict';
 
-function popoutContent() {
+//Function is always called
+popoutContent();
 
+function popoutContent() {
 	var header_height = removeHeader();
 	fixHeight(header_height);
+
+	//Reruns fixheight whenever window is resized
+	var timeoutId = 0;
+	window.addEventListener('resize', function() {
+		if (timeoutId){
+		    clearTimeout(timeoutId);
+		}
+		timeoutId = setTimeout(function() {
+		    fixHeight();
+		    timeoutId = 0;
+		}, 200);
+	}, false);
 }
 
 function removeHeader() {
@@ -33,15 +47,3 @@ function fixHeight(header_height = 0) {
 		}
 	});
 }
-
-var timeoutId = 0;
-window.addEventListener('resize', function() {
-	
-	if (timeoutId){
-	    clearTimeout(timeoutId);
-	}
-	timeoutId = setTimeout(function() {
-	    fixHeight();
-	    timeoutId = 0;
-	}, 200);
-}, false);
