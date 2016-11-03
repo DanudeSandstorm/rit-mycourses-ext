@@ -46,8 +46,7 @@ function floatSideBar() {
 
 	//Create new surrounding div
 	var div = document.createElement('div');
-	div.style.width = 'inherit';
-	div.style.top = "60px";
+	div.id = "content-menu";
 
 	while (side.firstChild) {
 		try {
@@ -62,10 +61,10 @@ function floatSideBar() {
 	//target = document.querySelector(".d2l-twopanelselector-wrapper .d2l-box-layout");
 	document.addEventListener("scroll", function(e) {
 		if (target.offsetTop - window.scrollY > 36) {
-			div.style.position = 'inherit';
+			div.classList.remove("fixed");
 	  	} 
 	  	else {
-			div.style.position = 'fixed';
+	  		div.classList.add("fixed");
 	  	}  
 	});
 }

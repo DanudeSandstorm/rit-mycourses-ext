@@ -1,0 +1,16 @@
+#content-menu {
+	position: inherit;
+	width: calc(inherit - 10px);
+	top: 60px;
+}
+
+#content-menu.fixed {
+	position: fixed;
+	width: inherit;
+}
+
+@media screen and (max-width: 762px) {
+	#content-menu {
+		/*display: none;*/
+	}
+}
