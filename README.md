@@ -18,6 +18,7 @@ An extension for RIT's myCourses website which fixes/improves various things:
 
 #### Content Page
 - Option to open links in pop out window (instead of redirecting the current page)
+- Content Menu's position is fixed (won't scroll with page)
 
 #### Popout content
 - Fixed popouts not resizing to window size 

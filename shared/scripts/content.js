@@ -1,5 +1,10 @@
 'use strict';
 
+//Function is always called
+window.addEventListener('DOMContentLoaded', function() {
+	floatSideBar();
+});
+
 //Checks for user settings
 getContentData(function(bool) {
 	if (bool) attachObserver();
@@ -8,7 +13,6 @@ getContentData(function(bool) {
 //ReplaceLinks observer on content loaded
 function attachObserver() {
 	var observer = new MutationObserver(function(mutations) {
-		console.log('test');
 		replaceLinks();
 	});
 
@@ -17,7 +21,6 @@ function attachObserver() {
 		var target = document.getElementsByClassName("d2l-twopanelselector-wrapper")[0];
 		//var target = document.querySelectorAll(".d2l-twopanelselector-wrapper .d2l-box")[1];
 		var config = { childList: true, subtree: true };
-		console.log(target);
 		observer.observe(target, config);
 	}, false);
 }
@@ -36,4 +39,33 @@ function replaceLinks() {
 		link.addEventListener('click', openPopup.bind(this, url));
 	});
 
+}
+
+function floatSideBar() {
+	var side = document.querySelectorAll(".d2l-box.d2l-twopanelselector-side")[0];
+
+	//Create new surrounding div
+	var div = document.createElement('div');
+	div.style.width = 'inherit';
+	div.style.top = "60px";
+
+	while (side.firstChild) {
+		try {
+			div.appendChild(side.children[0]);
+		} catch (err) {}
+		side.removeChild(side.firstChild);
+	}
+
+	side.appendChild(div);
+
+	var target = document.getElementsByClassName("d2l-twopanelselector-wrapper")[0];
+	//target = document.querySelector(".d2l-twopanelselector-wrapper .d2l-box-layout");
+	document.addEventListener("scroll", function(e) {
+		if (target.offsetTop - window.scrollY > 36) {
+			div.style.position = 'inherit';
+	  	} 
+	  	else {
+			div.style.position = 'fixed';
+	  	}  
+	});
 }
