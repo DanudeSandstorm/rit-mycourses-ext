@@ -24,20 +24,38 @@ An extension for RIT's myCourses website which fixes/improves various things:
 - Fixed popouts not resizing to window size 
 - Removes the header in popout content allowing for more content to be displayed on screen
 
-#### Discussions
+#### Discussions<p></p>
 - Hides quoted content in posts
 
 
 ### Chrome
 [Chrome Store](https://chrome.google.com/webstore/detail/mycourses-mod-pack/ngplfhblfejgjnaapcajgiccnapfhchi)
 
-[How to side-load the extension](https://developer.chrome.com/extensions/getstarted#unpacked)
-
+[How to side-load the extension](https://developer.chrome.com/extensions/getstarted#unpacked)  
+\*Use the bin/chrome directory for the unpacked extension target (see development).
 
 ### Development
 Any shared resources between browsers are kept within the shared folder.  
-When working on shared, use the pack.sh script.  
-The first argument is the browser (chrome or firefox):
-```bash
-$./pack.sh chrome
+When a function in a shared script file "name" requires browser specific implementation, 
+that function is implemented within the file "_name":  
+
+#####Example
 ```
+├── chrome
+│	├── scripts
+│	│	├── _base.js
+│
+└── shared
+    ├── scripts
+    │	├── base.js
+```
+
+####Running
+After making changes, use the pack.sh script.  
+The first argument is the browser:
+```bash
+$ ./pack.sh chrome
+```
+
+The script combines and places both the shared files
+and browser specific files within the corresponding bin/[browser].
