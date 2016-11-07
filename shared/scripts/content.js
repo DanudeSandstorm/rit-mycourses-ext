@@ -13,16 +13,25 @@ getContentData(function(bool) {
 //ReplaceLinks observer on content loaded
 function attachObserver() {
 	var observer = new MutationObserver(function(mutations) {
+		loadmore();
 		replaceLinks();
 	});
 
 	window.addEventListener('DOMContentLoaded', function() {
+		loadmore();
 		replaceLinks();
 		var target = document.getElementsByClassName("d2l-twopanelselector-wrapper")[0];
 		//var target = document.querySelectorAll(".d2l-twopanelselector-wrapper .d2l-box")[1];
 		var config = { childList: true, subtree: true };
 		observer.observe(target, config);
 	}, false);
+}
+
+function loadmore() {
+	var buttons = document.querySelectorAll('.d2l-loadmore-pager:not(.d2l-hidden)');
+	for (var i = 0; i < buttons.length; i++) {
+		buttons[i].click();
+	}
 }
 
 //Replaces content links with popout content links
