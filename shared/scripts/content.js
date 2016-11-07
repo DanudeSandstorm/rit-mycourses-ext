@@ -1,9 +1,9 @@
 'use strict';
 
 //Function is always called
-window.addEventListener('DOMContentLoaded', function() {
-	floatSideBar();
-});
+// window.addEventListener('DOMContentLoaded', function() {
+// 	floatSideBar();
+// });
 
 //Checks for user settings
 getContentData(function(bool) {
