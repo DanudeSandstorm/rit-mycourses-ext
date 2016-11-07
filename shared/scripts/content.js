@@ -19,7 +19,7 @@ function attachObserver() {
 
 	window.addEventListener('DOMContentLoaded', function() {
 		loadmore();
-		replaceLinks();
+		//replaceLinks();
 		var target = document.getElementsByClassName("d2l-twopanelselector-wrapper")[0];
 		//var target = document.querySelectorAll(".d2l-twopanelselector-wrapper .d2l-box")[1];
 		var config = { childList: true, subtree: true };
