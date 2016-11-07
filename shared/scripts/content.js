@@ -13,13 +13,15 @@ getContentData(function(bool) {
 //ReplaceLinks observer on content loaded
 function attachObserver() {
 	var observer = new MutationObserver(function(mutations) {
-		loadmore();
-		replaceLinks();
+		if (!loadmore()) {
+			replaceLinks();
+		}
 	});
 
 	window.addEventListener('DOMContentLoaded', function() {
-		loadmore();
-		//replaceLinks();
+		if (!loadmore()) {
+			replaceLinks();
+		}
 		var target = document.getElementsByClassName("d2l-twopanelselector-wrapper")[0];
 		//var target = document.querySelectorAll(".d2l-twopanelselector-wrapper .d2l-box")[1];
 		var config = { childList: true, subtree: true };
@@ -32,6 +34,10 @@ function loadmore() {
 	for (var i = 0; i < buttons.length; i++) {
 		buttons[i].click();
 	}
+	if (buttons.length > 0) {
+		return true;
+	}
+	return false;
 }
 
 //Replaces content links with popout content links
