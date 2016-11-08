@@ -1,9 +1,9 @@
 'use strict';
 
 //Function is always called
-// window.addEventListener('DOMContentLoaded', function() {
-// 	floatSideBar();
-// });
+window.addEventListener('DOMContentLoaded', function() {
+	floatSideBar();
+});
 
 //Checks for user settings
 getContentData(function(bool) {
@@ -72,14 +72,19 @@ function floatSideBar() {
 
 	side.appendChild(div);
 
+	var modTree = document.getElementById("ContentModuleTree");
+	modTree.style.maxHeight = (window.innerHeight - 180) + 'px';
+
 	var target = document.getElementsByClassName("d2l-twopanelselector-wrapper")[0];
 	//target = document.querySelector(".d2l-twopanelselector-wrapper .d2l-box-layout");
 	document.addEventListener("scroll", function(e) {
 		if (target.offsetTop - window.scrollY > 36) {
 			div.classList.remove("fixed");
+			modTree.style.maxHeight = (window.innerHeight - 180) + 'px';
 	  	} 
 	  	else {
 	  		div.classList.add("fixed");
+	  		modTree.style.maxHeight = (window.innerHeight - 140) + 'px';
 	  	}  
 	});
 }

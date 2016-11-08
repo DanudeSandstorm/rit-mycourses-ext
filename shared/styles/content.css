@@ -9,6 +9,10 @@
 	width: inherit;
 }
 
+#ContentModuleTree {
+	overflow-y: auto;	
+}
+
 @media screen and (max-width: 762px) {
 	#content-menu {
 		/*display: none;*/
