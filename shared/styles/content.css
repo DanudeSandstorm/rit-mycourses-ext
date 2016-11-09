@@ -1,0 +1,20 @@
+#content-menu {
+	position: inherit;
+	width: calc(inherit - 10px);
+	top: 60px;
+}
+
+#content-menu.fixed {
+	position: fixed;
+	width: inherit;
+}
+
+#ContentModuleTree {
+	overflow-y: auto;	
+}
+
+@media screen and (max-width: 762px) {
+	#content-menu {
+		/*display: none;*/
+	}
+}
