@@ -19,6 +19,8 @@ function attachObserver() {
 	});
 
 	window.addEventListener('DOMContentLoaded', function() {
+		//If more content was loaded, mutation observer will be
+		//notified anyway, no need to run replacelinks twice
 		if (!loadmore()) {
 			replaceLinks();
 		}
@@ -29,6 +31,7 @@ function attachObserver() {
 	}, false);
 }
 
+//Presses the loadmore button for content
 function loadmore() {
 	var buttons = document.querySelectorAll('.d2l-loadmore-pager:not(.d2l-hidden)');
 	for (var i = 0; i < buttons.length; i++) {
@@ -42,14 +45,13 @@ function loadmore() {
 
 //Replaces content links with popout content links
 function replaceLinks() {
-	//For each link replace with onclick event \
-	//that fires create window message
+	//For each link replace with onclick event for opening as popup
 	document.getElementsByClassName('d2l-datalist')[0]
-	.querySelectorAll('.d2l-datalist-item-content .vui-link-main')
+	.querySelectorAll('.d2l-datalist-item-content .vui-link-main :not(.replaced)')
 	.forEach(function(link) {
 		var url = link.href.replace("viewContent", "fullscreen");
 		link.removeAttribute("href");
-
+		link.className += "replaced";
 		//onclick to the links
 		link.addEventListener('click', openPopup.bind(this, url));
 	});
@@ -87,4 +89,15 @@ function floatSideBar() {
 	  		modTree.style.maxHeight = (window.innerHeight - 140) + 'px';
 	  	}  
 	});
+}
+
+function openPopup(url) {
+	var popup = window.open(url, "", "menubar=no, status=no, titlebar=no");
+	//Janky code due to chrome being annoying with new windows
+	popup.moveTo(0,0);
+	popup.resizeTo((window.screen.availWidth / 2) -10, window.screen.availHeight);
+	popup.onload = function() {
+		popup.moveTo(-10,0);
+		popup.resizeTo(window.screen.availWidth / 2, window.screen.availHeight + 10);
+	}
 }
