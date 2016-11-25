@@ -47,7 +47,7 @@ function loadmore() {
 function replaceLinks() {
 	//For each link replace with onclick event for opening as popup
 	document.getElementsByClassName('d2l-datalist')[0]
-	.querySelectorAll('.d2l-datalist-item-content .vui-link-main :not(.replaced)')
+	.querySelectorAll('.d2l-datalist-item-content .vui-link-main:not(.replaced)')
 	.forEach(function(link) {
 		var url = link.href.replace("viewContent", "fullscreen");
 		link.removeAttribute("href");
