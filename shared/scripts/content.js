@@ -97,6 +97,7 @@ function openPopup(url) {
 	popup.moveTo(0,0);
 	popup.resizeTo((window.screen.availWidth / 2) -10, window.screen.availHeight);
 	popup.onload = function() {
+		popup.focus();
 		popup.moveTo(-10,0);
 		popup.resizeTo(window.screen.availWidth / 2, window.screen.availHeight + 10);
 	}
