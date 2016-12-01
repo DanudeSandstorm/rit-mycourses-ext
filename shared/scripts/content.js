@@ -82,11 +82,11 @@ function floatSideBar() {
 	document.addEventListener("scroll", function(e) {
 		if (target.offsetTop - window.scrollY > 36) {
 			div.classList.remove("fixed");
-			modTree.style.maxHeight = (window.innerHeight - 180) + 'px';
+			//modTree.style.maxHeight = (window.innerHeight - 180) + 'px';
 	  	} 
 	  	else {
 	  		div.classList.add("fixed");
-	  		modTree.style.maxHeight = (window.innerHeight - 140) + 'px';
+	  		//modTree.style.maxHeight = (window.innerHeight - 140) + 'px';
 	  	}  
 	});
 }
