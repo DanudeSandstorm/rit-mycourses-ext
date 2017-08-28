@@ -82,22 +82,22 @@ function floatSideBar() {
 	document.addEventListener("scroll", function(e) {
 		if (target.offsetTop - window.scrollY > 36) {
 			div.classList.remove("fixed");
-			modTree.style.maxHeight = (window.innerHeight - 180) + 'px';
+			//modTree.style.maxHeight = (window.innerHeight - 180) + 'px';
 	  	} 
 	  	else {
 	  		div.classList.add("fixed");
-	  		modTree.style.maxHeight = (window.innerHeight - 140) + 'px';
+	  		//modTree.style.maxHeight = (window.innerHeight - 140) + 'px';
 	  	}  
 	});
 }
 
 function openPopup(url) {
 	var popup = window.open(url, "", "menubar=no, status=no, titlebar=no");
-	//Janky code due to chrome being annoying with new windows
+	//Janky code due to chrome being annoying with "window.open"
 	popup.moveTo(0,0);
-	popup.resizeTo((window.screen.availWidth / 2) -10, window.screen.availHeight);
-	popup.onload = function() {
-		popup.moveTo(-10,0);
-		popup.resizeTo(window.screen.availWidth / 2, window.screen.availHeight + 10);
-	}
+	popup.focus();
+	popup.resizeTo((window.screen.availWidth / 2), window.screen.availHeight);
+	// popup.onload = function() {
+
+	// }
 }
