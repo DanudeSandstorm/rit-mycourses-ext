@@ -2,8 +2,14 @@
 #Params source/file, bin/file
 replacemodified()
 {
-  if [ ! -e "$2" ] || [ "$1" -nt "$2" ]; then
-    cp "$1" "$2";
+  dest="$2";
+  if [ -d "$2" ]; then
+    f=`basename "$1"`;
+    dest="$dest$f";
+  fi
+  echo "$1" "$dest";
+  if [ ! -e "$dest" ] || [ "$1" -nt "$dest" ]; then
+    cp "$1" "$dest";
   fi
   return 0
 }
