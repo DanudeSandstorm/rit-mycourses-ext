@@ -13,7 +13,6 @@ An extension for RIT's myCourses website which fixes/improves various things:
 - Removes unnecessary sections and content
 
 #### Course Pages
-- Squashes the banner to take up less room on each page
 
 #### Content Page
 - Option to open links in pop out window (instead of redirecting the current page)

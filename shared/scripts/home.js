@@ -1,7 +1,7 @@
 'use strict';
 
 //Function is always called
-removeContent();
+// removeContent();
 
 //Removes the top widgets from each column on the home page
 function removeContent() {
@@ -10,7 +10,7 @@ function removeContent() {
 
     //Grabs the two columns on the home page
     boxes = document.querySelectorAll(".d2l-homepage .d2l-box .d2l-box-layout")[0].children;
-    
+
     //Grabs first column's first widget
     widgets = getWidgets(boxes[0]);
 
