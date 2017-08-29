@@ -1,9 +1,14 @@
-var options = [ 
-	{name: 'auto-login', text: 'Auto Login'}, 
-	{name: 'course-reduce', text: 'Reduce Course List', 
+var options = [
+	{name: 'beta', text: "Beta Features",
+		help: "This enables features that haven't been extensively tested"
+	},
+	{name: 'auto-login', text: 'Auto Login',
+		help: "Doesn't log in Shiboleth"
+	},
+	{name: 'course-reduce', text: 'Reduce Course List',
 		help: 'Shows only current courses in course drop down menu'
 	},
-	{name: 'content-popout', text: 'Popout Content Links', 
+	{name: 'content-popout', text: 'Popout Content Links',
 		help: 'Pops out links in the content section instead of redirecting'
 	}
 ];

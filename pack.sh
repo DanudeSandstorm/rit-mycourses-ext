@@ -7,8 +7,8 @@ replacemodified()
     f=`basename "$1"`;
     dest="$dest$f";
   fi
-  echo "$1" "$dest";
   if [ ! -e "$dest" ] || [ "$1" -nt "$dest" ]; then
+    echo "$1 -> $dest";
     cp "$1" "$dest";
   fi
   return 0
@@ -20,6 +20,7 @@ merge()
   if [ -f "$2" ]; then
     if [ ! -e "$3" ] || [ "$1" -nt "$3" ] || [ "$2" -nt "$3" ]; then
       cat "$1" "$2" > "$3";
+      echo "$3";
     fi
   else
     replacemodified "$1" "$3";
@@ -29,7 +30,7 @@ merge()
 
 pack()
 {
-  echo "copying shared files into $1";
+  echo "packing files into bin/$1";
 
   #pack images
   [ -d bin/$1/images ] || mkdir -p bin/$1/images;
@@ -100,11 +101,15 @@ case "$1" in
   chrome|firefox)
     pack "$1";
     ;;
+  --all)
+    pack "chrome";
+    pack "firefox";
+    ;;
   --clean)
     clean "$2";
     ;;
   -h|--help)
-    echo $"Usage: $0 {--clean} [browser]"
+    echo $"Usage: $0 {--all|--clean} [browser]"
     ;;
   *)
     echo "Not a supported browser"
