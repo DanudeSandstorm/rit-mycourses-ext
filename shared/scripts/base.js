@@ -2,7 +2,7 @@
 
 //Checks for user settings
 getReduceData(function(bool) {
-    if (bool) selectACourse();
+    // if (bool) selectACourse(); //TODO
 });
 
 //Reduces select a course list to currently enrolled courses
