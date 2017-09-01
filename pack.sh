@@ -20,7 +20,7 @@ merge()
   if [ -f "$2" ]; then
     if [ ! -e "$3" ] || [ "$1" -nt "$3" ] || [ "$2" -nt "$3" ]; then
       cat "$1" "$2" > "$3";
-      echo "merged "`basename "$3"`;
+      echo "merged "`basename "$3"`" -> $3";
     fi
   else
     replacemodified "$1" "$3";

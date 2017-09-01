@@ -2,12 +2,13 @@
 
 //Checks for user settings
 getReduceData(function(bool) {
-    // if (bool) selectACourse(); //TODO
+    if (bool) selectACourse();
 });
 
 //Reduces select a course list to currently enrolled courses
 function selectACourse() {
-    var button = document.getElementsByClassName("d2l-menuflyout-opener")[0];
+    var course_menu = document.querySelector(".d2l-navigation-s-course-menu");
+    var button = course_menu.querySelector(".d2l-dropdown-opener");
 
     button.addEventListener('click',
         waitForCourses.bind(this, function() {
@@ -15,12 +16,11 @@ function selectACourse() {
                 prevCourses = [];
 
             //Selector for list of class items
-            var courses = document.getElementsByClassName("d2l-menuflyout-contents")[0]
-                                .querySelectorAll(".d2l-datalist > .d2l-datalist-item");
+            var courses = course_menu.querySelectorAll(".d2l-datalist-item");
 
             //Determines the current semester
             for (var i = 0; i < courses.length; i++) {
-                var title = courses[i].children[0].title;
+                var title = courses[0].querySelector(".d2l-datalist-item-content").title;
                 var semester = title.substr(title.length - 4);
 
                 if (!isNaN(semester) && semester > currSemester) currSemester = semester;
@@ -31,7 +31,7 @@ function selectACourse() {
                 //Ignores pinned courses
                 if (course.classList.contains("vui-selected")) return;
 
-                var title = course.children[0].title;
+                var title = course.querySelector(".d2l-datalist-item-content").title;;
                 var semester = title.substr(title.length - 4);
 
                 if (isNaN(semester) || semester != currSemester) prevCourses.push(course);
@@ -46,7 +46,8 @@ function selectACourse() {
     //Wait for the elements to load
     function waitForCourses(callBack) {
         window.setTimeout(function() {
-            (document.querySelectorAll(".d2l-menuflyout-contents .d2l-datalist").length)
+            console.log(course_menu);
+            (course_menu.querySelectorAll(".d2l-datalist-item").length)
                 ? callBack()
                 : waitForCourses(callBack);
         }, 200);
