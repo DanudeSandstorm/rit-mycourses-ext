@@ -50,7 +50,6 @@ function replaceLinks() {
 	.querySelectorAll('.d2l-datalist-item-content .d2l-link:not(.d2l-hidden):not(.replaced)')
 	.forEach(function(link) {
 		var url = link.href.replace("viewContent", "fullscreen");
-		console.log(link);
 		link.removeAttribute("href");
 		link.className += " replaced";
 		//onclick to the links
