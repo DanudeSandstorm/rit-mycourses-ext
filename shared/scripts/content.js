@@ -20,7 +20,7 @@ function attachObserver() {
 
 	window.addEventListener('DOMContentLoaded', function() {
 		//If more content was loaded, mutation observer will be
-		//notified anyway, no need to run replacelinks twice
+		//notified anyway, no need to run replaceLinks() twice
 		if (!loadmore()) {
 			replaceLinks();
 		}
@@ -47,11 +47,11 @@ function loadmore() {
 function replaceLinks() {
 	//For each link replace with onclick event for opening as popup
 	document.getElementsByClassName('d2l-datalist')[0]
-	.querySelectorAll('.d2l-datalist-item-content .vui-link-main:not(.replaced)')
+	.querySelectorAll('.d2l-datalist-item-content .d2l-link:not(.d2l-hidden):not(.replaced)')
 	.forEach(function(link) {
 		var url = link.href.replace("viewContent", "fullscreen");
 		link.removeAttribute("href");
-		link.className += "replaced";
+		link.className += " replaced";
 		//onclick to the links
 		link.addEventListener('click', openPopup.bind(this, url));
 	});
@@ -83,11 +83,11 @@ function floatSideBar() {
 		if (target.offsetTop - window.scrollY > 36) {
 			div.classList.remove("fixed");
 			//modTree.style.maxHeight = (window.innerHeight - 180) + 'px';
-	  	} 
+	  	}
 	  	else {
 	  		div.classList.add("fixed");
 	  		//modTree.style.maxHeight = (window.innerHeight - 140) + 'px';
-	  	}  
+	  	}
 	});
 }
 

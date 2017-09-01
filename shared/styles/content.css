@@ -4,17 +4,24 @@
 	top: 60px;
 }
 
-#content-menu.fixed {
-	position: fixed;
-	width: inherit;
-}
-
-#ContentModuleTree {
-	overflow-y: auto;	
+@media screen and (min-width: 762px) {
+    #content-menu.fixed {
+        position: fixed;
+        width: inherit;
+    }
 }
 
 @media screen and (max-width: 762px) {
-	#content-menu {
-		/*display: none;*/
-	}
+    #content-menu.fixed {
+        display: none;
+    }
 }
+
+#content-menu .d2l-twopanelselector-side-padding {
+    padding: 0 0 30px 30px;
+}
+
+#ContentModuleTree {
+	overflow-y: auto;
+}
+

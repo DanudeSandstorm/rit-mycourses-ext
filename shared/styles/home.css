@@ -1,3 +1,6 @@
+.homepage-row .d2l-widget:first-child {
+    display: none;
+}
 .d2l-htmlblock {
     display: none;
 }
