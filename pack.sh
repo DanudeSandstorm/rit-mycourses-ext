@@ -109,7 +109,7 @@ case "$1" in
     clean "$2";
     ;;
   -h|--help)
-    echo $"Usage: $0 {--all|--clean} [browser]"
+    echo $"Usage: $0 {--all} {--clean} [browser]"
     ;;
   *)
     echo "Not a supported browser"
