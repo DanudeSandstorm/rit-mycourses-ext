@@ -5,7 +5,7 @@
     display: none;
 }
 img.d2l-course-image {
-    display: none;
+    /*display: none;*/
 }
 .d2l-course-tile-0 .course-image.d2l-course-tile d2l-course-image.d2l-course-tile {
     display: none;
@@ -18,6 +18,9 @@ img.d2l-course-image {
 }
 .d2l-course-tile-0 .tile-container.d2l-course-tile {
     margin-bottom: .1rem;
+}
+div.d2l-course-banner-container {
+	display: none;
 }
 .daylight .d2l-widget {
     margin-bottom: 20px;
