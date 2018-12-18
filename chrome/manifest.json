@@ -3,7 +3,7 @@
 
   "name": "Brightspace Improvements",
   "description": "Improves myCourses/desire2learn websites",
-  "version": "3.2.6",
+  "version": "3.2.7",
   "icons": {
     "16": "images/icon16.png",
     "48": "images/icon48.png",
@@ -12,8 +12,10 @@
 
   "permissions": [
     "storage",
-    "https://*/d2l/*"
+    "https://mycourses.rit.edu/*"
   ],
+
+  "optional_permissions": ["https://*/d2l/*"],
 
   "background": {
     "scripts": ["scripts/background.js"]
