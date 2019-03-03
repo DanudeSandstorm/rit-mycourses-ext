@@ -3,7 +3,7 @@
 
   "name": "Brightspace Improvements",
   "description": "Improves myCourses/desire2learn websites",
-  "version": "3.2.7",
+  "version": "3.2.8",
   "icons": {
     "16": "images/icon16.png",
     "48": "images/icon48.png",
@@ -32,8 +32,12 @@
       "js": ["scripts/base.js"]
     },
     {
-      "matches": ["https://*/d2l/home", "https://*/d2l/home/*"],
+      "matches": ["https://*/d2l/home"],
       "css": ["styles/home.css"]
+    },
+    {
+      "matches": ["https://*/d2l/home/*"],
+      "css": ["styles/course.css"]
     },
     {
       "matches": ["https://*/d2l/le/content/*/Home*"],
